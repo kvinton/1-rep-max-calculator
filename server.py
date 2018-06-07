@@ -7,16 +7,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 
 from sqlalchemy import func, desc
 
-# from model import (connect_to_db, db, User, UserMessage, CustomerService, 
-#                    CXMessage, MessageThread)
-
-
-
-# from helper_functions import (is_message_urgent, is_thread_urgent, 
-#                               create_all_messages_dict, get_unread_message_threads,
-#                               get_recent_message_threads, get_urgent_message_threads,
-#                               get_threads_by_cx, create_message_thread_dict)
-
+import os
 
 app = Flask(__name__)
 
@@ -73,12 +64,6 @@ if __name__ == "__main__":
 
     app.debug = False
 
-    app.jinja_env.auto_reload = app.debug
+    port = int(os.environ.get('PORT', 5000))
 
-    # connect_to_db(app)
-
-    DebugToolbarExtension(app)
-
-    # app.run()
-
-    app.run(port=5000, threaded=True, host='0.0.0.0')
+    app.run(port=port, host='0.0.0.0')
