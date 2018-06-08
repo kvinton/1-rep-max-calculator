@@ -19,8 +19,6 @@ function displayRepMax (response) {
     for (let plan of response.weights) {
         $('#plan').append(`<b>Reps:</b> ${plan[1]}   <b>Weight:</b> ${plan[0]}   <b>New Max:</b> ${plan[2]}<br>`)
     }
-
-    
 }
 
 
